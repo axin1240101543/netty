@@ -1,5 +1,7 @@
 package com.darren.service.netty.bio;
 
+import sun.security.util.Length;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -33,10 +35,10 @@ public class SocketServer {
             //接收客户端的连接，没有客户端连接就阻塞
             Socket clientSocket = serverSocket.accept();
             System.out.println("有客户端连接了...");
-            //handler(clientSocket);
+            handler(clientSocket);
             //优化
-            ExecutorService executorService = Executors.newFixedThreadPool(30);
-            executorService.submit(() -> handler(clientSocket));
+            /*ExecutorService executorService = Executors.newFixedThreadPool(30);
+            executorService.submit(() -> handler(clientSocket));*/
         }
     }
 
@@ -45,14 +47,14 @@ public class SocketServer {
         System.out.println("准备read...");
         //阻塞方法
         //接收客户端的数据，没有数据可读时就阻塞
-        int read = 0;
+        int length = 0;
         try {
-            read = clientSocket.getInputStream().read(bytes);
+            length = clientSocket.getInputStream().read(bytes);
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("读取完毕...");
-        if (read != -1){
+        if (length != -1){
             System.out.println("接收到客户端的数据：" + new String(bytes));
         }
         //给服务端输出HelloClient
