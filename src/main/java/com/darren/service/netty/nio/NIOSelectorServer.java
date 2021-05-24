@@ -19,6 +19,13 @@ import java.util.Set;
  * 2、channel会注册到selector上，由selector根据channel读写事件的发生将其交由某个空闲的线程处理
  * 3、NIO的Buffer和channel都是既可以读也可以写
  *
+ * NIO底层在JDK1.4版本是用linux的内核函数select()或poll()来实现，跟上面的NioServer代码类似，selector每次都会轮询所有的
+ * sockchannel看下哪个channel有读写事件，有的话就处理，没有就继续遍历，JDK1.5开始引入了epoll基于事件响应机制来优化NIO。
+ *
+ * 总结：NIO整个调用流程就是Java调用了操作系统的内核函数来创建Socket，获取到Socket的文件描述符，再创建一个Selector
+ * 对象，对应操作系统的Epoll描述符，将获取到的Socket连接的文件描述符的事件绑定到Selector对应的Epoll文件描述符上，进
+ * 行事件的异步通知，这样就实现了使用一条线程，并且不需要太多的无效的遍历，将事件处理交给了操作系统内核(操作系统中断
+ * 程序实现)，大大提高了效率。
  *
  * @author : Darren
  * @date : 2021年05月23日 18:37:27
