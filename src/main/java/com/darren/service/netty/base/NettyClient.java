@@ -1,12 +1,9 @@
-package com.darren.service.netty.netty;
+package com.darren.service.netty.base;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -23,7 +20,7 @@ public class NettyClient {
 
     public static void main(String[] args) throws InterruptedException {
         //客户端需要一个事件循环组
-        NioEventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup group = new NioEventLoopGroup();
         try {
             //创建客户端启动对象
             //注意客户端使用的不是ServerBootstrap，而是Bootstrap

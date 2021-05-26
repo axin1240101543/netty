@@ -1,4 +1,4 @@
-package com.darren.service.netty.netty;
+package com.darren.service.netty.base;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -94,6 +94,11 @@ public class NettyServer {
      * 自定义Handler需要继承netty绑定好的某个HandlerAdapter（规范）
      */
      static class NettyServerHandler extends ChannelInboundHandlerAdapter{
+
+        @Override
+        public void channelActive(ChannelHandlerContext ctx) throws Exception {
+            System.out.println("客户端连接通道建立完成...");
+        }
 
         /**
           * 读取客户端发送的数据
