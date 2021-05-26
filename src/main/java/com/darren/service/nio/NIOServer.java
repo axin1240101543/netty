@@ -1,4 +1,4 @@
-package com.darren.service.netty.nio;
+package com.darren.service.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

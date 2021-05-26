@@ -1,4 +1,4 @@
-package com.darren.service.netty;
+package com.darren.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

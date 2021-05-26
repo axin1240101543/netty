@@ -1,4 +1,4 @@
-package com.darren.service.netty;
+package com.darren.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

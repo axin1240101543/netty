@@ -1,4 +1,4 @@
-package com.darren.service.netty.bio;
+package com.darren.service.bio;
 
 import java.io.IOException;
 import java.net.ServerSocket;
