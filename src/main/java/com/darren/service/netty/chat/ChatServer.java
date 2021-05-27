@@ -36,6 +36,7 @@ public class ChatServer {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             //加入特殊分隔符分包解码器
                             ChannelPipeline pipeline = socketChannel.pipeline();
+                            //责任链设计模式
                             /*pipeline.addLast(new DelimiterBasedFrameDecoder(
                                     1024, Unpooled.copiedBuffer("_".getBytes())));*/
                             //向pipeline加入解码器
