@@ -83,6 +83,20 @@ public class ChatServer {
             System.out.println(ctx.channel().remoteAddress() + "上线了" + "\n");
         }
 
+        /**
+         * 表示channel处于不活动状态，提示离线了
+         * @param ctx
+         * @throws Exception
+         */
+        @Override
+        public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+            Channel channel = ctx.channel();
+            //将客户离开信息推送给当前在线的客户
+            channelGroup.writeAndFlush("[ 客户端 ]" + channel.remoteAddress() + " 下线了" + "\n");
+            System.out.println(ctx.channel().remoteAddress() + " 下线了" + "\n");
+            System.out.println("channelGroup size=" + channelGroup.size());
+        }
+
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
             //获取到当前的channel
