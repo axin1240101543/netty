@@ -19,7 +19,7 @@ import java.util.Scanner;
  **/
 public class ChatClient {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
         //客户端需要一个事件循环组
         EventLoopGroup group = new NioEventLoopGroup();
         try {
