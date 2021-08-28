@@ -38,6 +38,22 @@
 			<artifactId>netty-all</artifactId>
 			<version>4.1.35.Final</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.dyuproject.protostuff</groupId>
+			<artifactId>protostuff-api</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dyuproject.protostuff</groupId>
+			<artifactId>protostuff-core</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dyuproject.protostuff</groupId>
+			<artifactId>protostuff-runtime</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 	</dependencies>
 
 	<build>
